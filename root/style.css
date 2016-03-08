@@ -3,11 +3,11 @@
  * Theme URI:    {%= homepage %}
  * Description:  {%= description %}
  * Author:       {%= author_name %}
- * Author URI:   {%= author_url %}
+ * Author URI:   {%= author_uri %}
  * Author Email: {%= author_email %}
  * Version:      {%= version %}
- * Licenses:     {%= licenses[0].type %}
- * License URI:  {%= licenses[0].url %}
+ * Licenses:     GPLv2+
+ * License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  {%= name %}
  * Domain Path:  /lang
  */
