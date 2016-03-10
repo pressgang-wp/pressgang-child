@@ -1,0 +1,22 @@
+{
+  "name": "{%= name}",
+  "version": "{%= version}",
+  "description": "{%= description}",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benedict-w/{%= name}.git"
+  },
+  "keywords": [
+    "Wordpress"
+  ],
+  "author": "Benedict Wallis",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/benedict-w/{%= name}/issues"
+  },
+  "homepage": "https://github.com/benedict-w/{%= name}#readme"
+}
