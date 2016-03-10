@@ -8,15 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benedict-w/{%= name}.git"
+    "url": "git+https://github.com/benedict-w/pressgang.git"
   },
   "keywords": [
     "Wordpress"
   ],
-  "author": "Benedict Wallis",
+  "author": "{%= author_name}",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/benedict-w/{%= name}/issues"
+    "url": "https://github.com/benedict-w/pressgang/issues"
   },
-  "homepage": "https://github.com/benedict-w/{%= name}#readme"
+  "homepage": "https://github.com/benedict-w/pressgang#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jit-grunt": "^0.10.0"
+  }
 }
