@@ -14,6 +14,25 @@ module.exports = function(grunt) {
                 }
             }
         },
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['js/src/**/*.js'],
+                dest: 'js/dist/<%= pkg.name %>.js'
+            }
+        },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            dist: {
+                files: {
+                    'js/min/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                }
+            }
+        },
         watch: {
             styles: {
                 files: ['less/**/*.less'],
@@ -25,5 +44,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['less', 'watch']);
+    grunt.registerTask('default', ['less', 'watch', 'concat', 'uglify']);
 };
