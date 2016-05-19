@@ -34,7 +34,9 @@ return array (
     /*
      * menus
      *
-     * Array representing each Menu in the theme.
+     * Associative array representing each Menu in the theme.
+     *
+     * [$key => $description]
      *
      * @var array
      */
@@ -83,6 +85,14 @@ return array (
      *
      */
     'custom-post-types' => array(),
+
+    /*
+     * custom-taxonomies
+     *
+     * Array of custom taxonomies to be registered
+     *
+     */
+    'custom-taxonomies' => array(),
 
     /*
      * support
