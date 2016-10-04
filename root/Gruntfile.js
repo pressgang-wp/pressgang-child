@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-    require('jit-grunt')(grunt);
 
     grunt.initConfig({
         less: {
@@ -43,6 +42,13 @@ module.exports = function(grunt) {
             }
         }
     });
+
+    // Load other tasks
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['less', 'watch', 'concat', 'uglify']);
 };
