@@ -32,6 +32,24 @@ return array (
     ),
 
     /*
+     * widget includes
+     *
+     * Array of files to include in the theme from the '/widgets' directory using the Loader class
+     *
+     */
+    'widgets' => array(
+    ),
+
+    /*
+    * shortcodes includes
+    *
+    * Array of files to include in the theme from the '/shortcodes' directory using the Loader class
+    *
+    */
+    'shortcodes' => array(
+    ),
+
+    /*
      * menus
      *
      * Associative array representing each Menu in the theme.
@@ -45,13 +63,13 @@ return array (
     ),
 
     /*
-     * widgets
+     * sidebars
      *
      * Array representing each widget sidebar used in the theme.
      *
      * @var array
      */
-    'widgets' => array(),
+    'sidebars' => array(),
 
     /*
      * actions
@@ -71,7 +89,7 @@ return array (
     */
     'scripts' => array(
         'bootstrap' => array(
-            'src' => get_template_directory_uri() . '/js/build/bootstrap.min.js',
+            'src' => get_template_directory_uri() . '/js/min/bootstrap.min.js',
             'deps' => array('jquery'),
             'version' => '3.2.0',
             'in_footer' => true
