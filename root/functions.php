@@ -1,3 +1,3 @@
 <?php
 
-const THEMENAME = '{%= name %}';
+define('THEMENAME', '{%= name %}');
