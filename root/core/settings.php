@@ -25,7 +25,6 @@ return array (
         // 'infinitepagination',
         'opengraph',
         'permalinks',
-        // 'require-featured-image',
         'sitemap',
         // 'slider',
         'title',
