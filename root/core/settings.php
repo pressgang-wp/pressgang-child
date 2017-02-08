@@ -15,7 +15,7 @@ return array (
     'inc' => array(
         // 'addthis',
         'admin-logo',
-        // 'breadcrumbs',
+        // 'breadcrumb',
         'customizer',
         'emojicons',
         'filters',
