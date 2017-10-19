@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         less: {
             development: {
                 options: {
@@ -32,6 +33,17 @@ module.exports = function(grunt) {
                 }
             }
         },
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer')
+                ]
+            },
+            dist: {
+                src: 'css/*.css'
+            }
+        },
         watch: {
             styles: {
                 files: ['less/**/*.less'],
@@ -48,7 +60,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['less', 'watch', 'concat', 'uglify']);
+
+    grunt.registerTask('default', ['less', 'postcss', 'concat', 'uglify', 'watch']);
 };
