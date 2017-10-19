@@ -98,17 +98,70 @@ return array (
     /*
      * custom-post-types
      *
-     * Array of custom_post_types to be registered
+     * Array of custom_post_types to be registered, indexed on post_type.
      *
+     * See: - https://codex.wordpress.org/Function_Reference/register_post_type
+     *
+     * - label (string|plural:post_type)
+     * - labels (array|name)
+     * - description (string|null)
+     * - public (boolean|false)
+     * - exclude_from_search (boolean|!public)
+     * - publicly_queryable (boolean|public)
+     * - show_ui (boolean|public)
+     * - show_in_nav_menus (boolean|public)
+     * - show_in_menu (boolean|show_ui)
+     * - menu_position (integer|null)
+     * - menu_icon (string|null)
+     * - capability_type (string or array|post)
+     * - capabilities (array|capability_type)
+     * - map_meta_cap (boolean|null)
+     * - hierarchical (boolean|false)
+     * - supports (array|title,editor,author,thumbnail,excerpt,trackbacks,custom-fields,comments,revisions,page-attributes,post-formats)
+     * - register_meta_box_cb (callback|null)
+     * - taxonomies (array|null)
+     * - has_archive (boolean|false)
+     * - rewrite (array|bool+post_type)
+     * - permalink_epmask (string,EP_PERMALINK)
+     * - query_var (boolean or string|true)
+     * - can_export (boolean|true)
+     * - delete_with_user (boolean|false)
+     * - show_in_rest (boolean|false)
+     * - rest_base (string|post_type)
+     * - rest_controller_class (class|WP_REST_Posts_Controller)
      */
     'custom-post-types' => array(),
 
-    /*
-     * custom-taxonomies
-     *
-     * Array of custom taxonomies to be registered
-     *
-     */
+   /*
+    * custom-taxonomies
+    *
+    * Array of custom taxonomies indexed on taxonomy name.
+    *
+    * https://codex.wordpress.org/Function_Reference/register_taxonomy
+    *
+    * - label (string|plural:post_type)
+    * - labels (array|name)
+    * - public (boolean|false)
+    * - publicly_queryable (boolean|public)
+    * - show_ui (boolean|public)
+    * - show_in_menu (boolean|show_ui)
+    * - show_in_nav_menus (boolean|public)
+    * - show_in_rest (boolean|false)
+    * - rest_base (string|post_type)
+    * - rest_controller_class (class|WP_REST_Posts_Controller)
+    * - show_tagcloud (boolean|show_ui)
+    * - show_in_quick_edit(boolean|show_ui)
+    * - meta_box_cb (callback|null)
+    * - show_admin_column (boolean|false)
+    * - description (string|null)
+    * - hierarchical (boolean|false)
+    * - update_count_callback (callback|null)
+    * - query_var (boolean or string|true)
+    * - rewrite (array or boolean|true)
+    * - capabilities (array|null)
+    * - sort (boolean|null)
+    *
+    */
     'custom-taxonomies' => array(),
 
     /*
