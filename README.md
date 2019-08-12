@@ -12,8 +12,7 @@
    + styles.css
 |-- js
 |-- lang
-|-- less
-  + main.less
+|-- scss
   + styles.less
 |--views
 + functions.php
