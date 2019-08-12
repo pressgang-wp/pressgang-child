@@ -1,91 +1,213 @@
 <?php
 
 /**
- * Pressgang configuration
+ * PressGang Configuration
+ *
+ * This is the main setup file for any PressGang child theme. File always resides in child-theme core folder.
+ *
+ * Sections are loaded via PressGang's core/loader.php
+ * https://github.com/benedict-w/pressgang/blob/master/core/loader.php
+ *
+ * @package PressGang https://github.com/benedict-w/pressgang
  *
  */
 return array (
 
     /*
-     * files
+     * Includes
      *
-     * Array of files to include in the theme from the '/inc' directory using the Loader class
+     * Array of files (can be filename minus .php extension) to include in the theme from the '/inc' directory,
+     * of the theme. Checks first for files in child theme then parent (PressGang).
+     *
+     * This folder is used for adding generic(or child theme specific) PHP extension to WordPress
+     * - de-clutter functions.php!
+     *
+     * Note:- fails silently if file not found!
+     *
+     * @var array
      *
      */
     'inc' => array(
-        // 'addthis',
         'admin-logo',
-        // 'breadcrumb',
         'customizer',
         'emojicons',
         'filters',
         'gallery',
         'google-analytics',
-        'images',
-        // 'infinitepagination',
         'opengraph',
         'permalinks',
-        'sitemap',
-        // 'slider',
         'title',
     ),
 
     /*
-     * widget includes
+     * Widget Includes
      *
-     * Array of files to include in the theme from the '/widgets' directory using the Loader class
+     * See - https://codex.wordpress.org/Widgets_API
      *
-     */
-    'widgets' => array(
-    ),
-
-    /*
-    * shortcodes includes
-    *
-    * Array of files to include in the theme from the '/shortcodes' directory using the Loader class
-    *
-    */
-    'shortcodes' => array(
-    ),
-
-    /*
-     * menus
+     * Array of files (can be filename minus .php extension) to include in the theme from the '/widgets' directory,
+     * of the theme. Checks first for files in child theme then parent (PressGang).
      *
-     * Associative array representing each Menu in the theme.
+     * This folder should be specifically reserved for WordPress widgets included in the theme.
      *
-     * [$key => $description]
+     * Widgets can be extended from PressGang base class
+     * https://github.com/benedict-w/pressgang/blob/master/classes/widget.php
+     *
+     * Note:- fails silently if file not found!
      *
      * @var array
+     *
+     */
+    'widgets' => array(),
+
+    /*
+     * Shortcode Includes
+     *
+     * See - https://codex.wordpress.org/Shortcode_API
+     *
+     * Array of files (can be filename minus .php extension) to include in the theme from the '/shortcodes' directory,
+     * of the theme. Checks first for files in child theme then parent (PressGang).
+     *
+     * This folder should be specifically reserved for WordPress shortcodes included in the theme.
+     *
+     * Shortcodes can be extended from PressGang base class
+     * https://github.com/benedict-w/pressgang/blob/master/classes/shortcode.php
+     *
+     * Note:- fails silently if file not found!
+     *
+     * @var array
+     *
+     */
+    'shortcodes' => array(),
+
+    /*
+     * Menus
+     *
+     * See - https://codex.wordpress.org/WordPress_Menu_User_Guide
+     *
+     * Associative array representing each Menu in used the theme.
+     *
+     * This is a proxy to the WordPress register_nav_menu function
+     * https://codex.wordpress.org/Navigation_Menus#Register_Menus
+     *
+     * @var array ['key' => 'description']
      */
     'menus' => array(
         'primary' => "Primary Navigation",
     ),
 
     /*
-     * sidebars
+     * Sidebars
      *
-     * Array representing each widget sidebar used in the theme.
+     * See - https://codex.wordpress.org/Sidebars
+     *
+     * Array representing each Widget Sidebar used in the theme.
+     *
+     * This is a proxy to the WordPress register_sidebar function.
+     *
+     * https://codex.wordpress.org/Function_Reference/register_sidebar
+     *
+     * See params - https://codex.wordpress.org/Function_Reference/register_sidebar#Parameters
      *
      * @var array
+     *
+     * [
+     *   'key' => [
+     *      'id' => '',
+     *      'name' => __("", THEMENAME),,
+     *      'description' => __("", THEMENAME),,
+     *      'class' => '',
+     *      'before_widget' => '',
+     *      'after_widget' => '',
+     *      'before_title' => '',
+     *      'after_title' => '',
+     *   ], ...
+     * ]
+     *
      */
     'sidebars' => array(),
 
     /*
-     * actions
+     * ACF Gutenberg Blocks
      *
-     * Array representing functions to hook on given actions
+     * See - https://www.advancedcustomfields.com/resources/blocks/
+     *
+     * Array of files (can be filename minus .php extension) to include in the theme from the '/blocks' directory,
+     * of the theme. Checks first for files in child theme then parent (PressGang).
+     *
+     * See the AcfBlocks class (which is a proxy for acf_register_block) for instantiation details:
+     * https://github.com/benedict-w/pressgang/blob/master/core/acf-blocks.php
+     * https://www.advancedcustomfields.com/resources/acf_register_block_type/
+     *
+     * Blocks can be extended from the PressGang base class, in which case set the correct render_callback.
+     * https://github.com/benedict-w/pressgang/blob/master/classes/block.php
+     *
+     * The PressGang/Block class automatically sends ACF fields to the Timber context.
+     *
+     * Loader will automatically add new Block categories which appear in the admin UI for adding Gutenberg blocks.
      *
      * @var array
+     *
+     * [
+     *   'key' => array(
+     *      'name' => '',
+     *      'title' => __("", THEMENAME),
+     *      'description' => __("", THEMENAME),
+     *      'render_callback' => array('PressGang\Block', 'render'),
+     *      'category' => array('slug' => '', 'title' => __("", THEMENAME)),
+     *      'icon' => '', // see dashicons https://developer.wordpress.org/resource/dashicons/#align-right
+     *      'keywords' => array(''),
+     *   ),
      */
-    'actions' => array(),
+    'acf-blocks' => array(),
 
     /*
-     * scripts
+     * ACF Options Page
      *
-     * Array of scripts on $handle => $args array where $args match wp_register_script, wit additional 'hook' param
-     * for the action to enque the script on (default = wp_enqueue_scripts)
+     * See - https://www.advancedcustomfields.com/add-ons/options-page/
      *
-    */
+     * Array representing each ACF Options Page used in the theme.
+     *
+     * This is a proxy to the acf_add_options_page function.
+     *
+     * @var array
+     *
+     */
+    'options' => array(
+        array(
+            'page_title' => __("Site Options", THEMENAME),
+        ),
+    ),
+
+    /*
+     * Scripts
+     *
+     * See - https://github.com/benedict-w/pressgang/blob/master/core/scripts.php
+     *
+     * Array of scripts on $handle => $args array where $args match wp_register_script arguments see:
+     * https://developer.wordpress.org/reference/functions/wp_register_script/
+     *
+     * An additional 'hook' parameter is available to specify the the action used to enqueue the script on
+     * (default = wp_enqueue_scripts).
+     *
+     * Also additional boolean params for deferring and async loading scripts.
+     *
+     * @var array
+     *
+     * [
+     *   'key' => [
+     *      'handle' => '',
+     *      'src' => '',
+     *      'deps' => '',
+     *      'ver' => '',
+     *      'in_footer' => true,
+     *      // pressgang additional params
+     *      'hook' => '',
+     *      'async' => true,
+     *      'defer' => true,
+     *   ],...
+     * ]
+     *
+     */
     'scripts' => array(
         'bootstrap' => array(
             'src' => get_template_directory_uri() . '/js/min/bootstrap.min.js',
@@ -96,7 +218,7 @@ return array (
     ),
 
     /*
-     * custom-post-types
+     * Custom Post Types
      *
      * Array of custom_post_types to be registered, indexed on post_type.
      *
@@ -133,7 +255,7 @@ return array (
     'custom-post-types' => array(),
 
    /*
-    * custom-taxonomies
+    * Custom Taxonomies
     *
     * Array of custom taxonomies indexed on taxonomy name.
     *
@@ -165,9 +287,20 @@ return array (
     'custom-taxonomies' => array(),
 
     /*
-     * support
+     * Actions
      *
-     * Include theme support
+     * Array representing functions to hook on given actions
+     *
+     * @var array
+     */
+    'actions' => array(),
+
+    /*
+     * Support
+     *
+     * See - https://developer.wordpress.org/reference/functions/add_theme_support/
+     *
+     * Proxies add_theme_support
      *
      * @var array
      */
@@ -177,7 +310,7 @@ return array (
     ),
 
     /*
-     * plugins
+     * Plugins
      *
      * Array of plugins required by the theme (displays admin warning if plugin not activated)
      *
