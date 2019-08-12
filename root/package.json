@@ -20,11 +20,21 @@
   },
   "homepage": "https://github.com/benedict-w/pressgang#readme",
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-less": "^1.4.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "@fortawesome/fontawesome-free": "latest",
+    "bootstrap": "latest",
+    "lazysizes": "latest",
+    "autoprefixer": "latest",
+    "grunt": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-compress": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-uglify-es": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "latest",
+    "grunt-svgmin": "latest",
+    "grunt-webfont": "latest"
   }
 }
