@@ -13,6 +13,9 @@
   "keywords": [
     "Wordpress"
   ],
+  "browserslist": [
+    "defaults"
+  ],
   "author": "{%= author_name}",
   "license": "GPL-2.0",
   "bugs": {
