@@ -41,6 +41,6 @@
     "purgecss-with-wordpress": "latest",
     "grunt-svgmin": "latest",
     "grunt-webfont": "latest",
-    "browserslist": "latest",
+    "browserslist": "latest"
   }
 }
