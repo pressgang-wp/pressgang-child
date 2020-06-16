@@ -1,6 +1,6 @@
 /*
  * grunt-init-pressgang-child
- * https://github.com/benedict-w/pressgang
+ * https://github.com/haiodesign/pressgang
  *
  * Copyright (c) 2016 Benedict Wallis, contributors
  * GNU General Public License v2 or later
@@ -8,7 +8,7 @@
 
 'use strict';
 
-exports.description = 'Create a basic Wordpress childtheme for Pressgang.';
+exports.description = 'Create a basic Haio WordPress childtheme for Pressgang.';
 
 // template-specific notes displayed before question prompts
 exports.notes = '';
@@ -25,14 +25,14 @@ exports.template = function(grunt, init, done) {
     init.process({}, [
 
         // prompt
-        init.prompt('name', "pressgang-child"),
-        init.prompt('homepage', "https://github.com/benedict-w/pressgang-child"),
-        init.prompt('description', "Wordpress child theme for pressgang."),
+        init.prompt('name', "haio-child"),
+        init.prompt('homepage', "https://github.com/haiodesign/pressgang-child"),
+        init.prompt('description', "WordPress Haio child template for pressgang."),
         init.prompt('version', "1.0.0"),
         // init.prompt('licenses', "GPL-2.0"),
-        init.prompt('author_name', "Benedict Wallis"),
-        init.prompt('author_email', "ben@benedict-wallis.com"),
-        init.prompt('author_uri', "http://www.benedict-wallis.com")
+        init.prompt('author_name', "Haio"),
+        init.prompt('author_email', "info@haio.design"),
+        init.prompt('author_uri', "https://haio.design/")
 
     ], function(err, props) {
 
