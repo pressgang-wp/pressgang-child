@@ -32,6 +32,30 @@ module.exports = function(grunt) {
                 src: 'css/*.css'
             }
         },
+        
+       /*
+        * https://purgecss.com/plugins/grunt.html
+        */
+        purgecss: {
+            my_target: {
+                options: {
+                    whitelist: [
+                        ...require("purgecss-with-wordpress").whitelist,
+                    ],
+                    whitelistPatterns: [
+                        ...require("purgecss-with-wordpress").whitelistPatterns,
+                    ],
+                    content: [
+                        '../pressgang/views/**/*.twig',
+                        './views/**/*.twig',
+                        './js/dist/*.js'
+                    ]
+                },
+                files: {
+                    'css/styles.css': ['css/styles.css']
+                }
+            }
+        },
 
         /*
          * https://github.com/gruntjs/grunt-contrib-cssmin
@@ -181,6 +205,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-purgecss');
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
@@ -193,7 +218,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-svg-sprite');
 
-    grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'watch']);
+    grunt.registerTask('default', ['sass', 'postcss', 'purgecss', 'cssmin', 'concat', 'uglify', 'watch']);
     grunt.registerTask('scripts', ['concat', 'uglify']);
     grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
 
