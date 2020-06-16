@@ -37,8 +37,10 @@
     "grunt-contrib-uglify-es": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-postcss": "latest",
+    "grunt-purgecss": "latest",
+    "purgecss-with-wordpress": "latest",
     "grunt-svgmin": "latest",
     "grunt-webfont": "latest",
-    "browserslist": "latest"
+    "browserslist": "latest",
   }
 }
