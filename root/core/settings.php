@@ -283,7 +283,9 @@ return array (
      * - rest_base (string|post_type)
      * - rest_controller_class (class|WP_REST_Posts_Controller)
      */
-    'custom-post-types' => array(),
+    'custom-post-types' => array(
+
+    ),
 
    /*
     * Custom Taxonomies
