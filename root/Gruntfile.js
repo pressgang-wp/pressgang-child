@@ -15,10 +15,10 @@ module.exports = function(grunt) {
         },
 
         /*
-         * https://www.npmjs.com/package/grunt-postcss
+         * https://github.com/C-Lodder/grunt-postcss
          *
          * To compile with autoprefixer -
-         * npm install grunt-postcss autoprefixer
+         * npm i --save-dev postcss @lodder/grunt-postcss autoprefixer
          *
          */
         postcss: {
@@ -203,7 +203,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('@lodder/grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-purgecss');
 
