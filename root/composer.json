@@ -2,7 +2,7 @@
   "name": "{%= name}",
   "description": "{%= description}",
   "type": "wordpress-theme",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "authors": [
     {
       "name": "{%= author_name}",
