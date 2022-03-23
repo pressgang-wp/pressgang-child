@@ -2,18 +2,8 @@
 
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                {% block content %}
-                    <section class="page">
-                        <div class="page-body">
-                            <div class="page-content">
-                                {{ page.content }}
-                            </div>
-                        </div>
-                    </section>
-                {% endblock %}
-            </div>
-        </div>
+        {% block content %}
+            {{ page.content }}
+        {% endblock %}
     </div>
 {% endblock %}
