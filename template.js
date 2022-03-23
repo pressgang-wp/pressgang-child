@@ -36,11 +36,20 @@ exports.template = function(grunt, init, done) {
 
     ], function(err, props) {
 
+    	console.log("╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━━╮\n" +
+				"┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭━╮┃\n" +
+				"┃╰━╯┣━┳━━┳━━┳━━┫┃╱╰╋━━┳━╮╭━━╮\n" +
+				"┃╭━━┫╭┫┃━┫━━┫━━┫┃╭━┫╭╮┃╭╮┫╭╮┃\n" +
+				"┃┃╱╱┃┃┃┃━╋━━┣━━┃╰┻━┃╭╮┃┃┃┃╰╯┃\n" +
+				"╰╯╱╱╰╯╰━━┻━━┻━━┻━━━┻╯╰┻╯╰┻━╮┃\n" +
+				"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃\n" +
+				"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯");
+
         // get the root files
         var files = init.filesToCopy(props);
 
         // add licenses
-        // init.addLicenseFiles(files, props.licenses);
+        init.addLicenseFiles(files, props.licenses);
 
         console.log( files );
 
@@ -48,7 +57,7 @@ exports.template = function(grunt, init, done) {
         init.copyAndProcess(files, props);
 
         // generate package.json file for npm and grunt
-        init.writePackageJSON('package.json', props);
+        // init.writePackageJSON('package.json', props);
 
         done();
     });
