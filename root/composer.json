@@ -12,10 +12,10 @@
   "minimum-stability": "dev",
   "repositories": [{
     "type": "vcs",
-    "url": "http://github.com/benedict-w/pressgang"
+    "url": "http://github.com/pressgang-wp/pressgang"
   }],
   "require": {
-    "benedict-w/pressgang": "dev-master"
+    "pressgang-wp/pressgang": "dev-master"
   },
   "extra": {
     "installer-paths": {
