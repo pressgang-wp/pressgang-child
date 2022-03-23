@@ -1,7 +1,7 @@
 {
-  "name": "{%= name}",
-  "version": "{%= version}",
-  "description": "{%= description}",
+  "name": "{%= name %}",
+  "version": "{%= version %}",
+  "description": "{%= description %}",
   "main": "index.php",
   "scripts": {
 	"test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
   "browserslist": [
 	"defaults"
   ],
-  "author": "{%= author_name}",
+  "author": "{%= author_name %}",
   "license": "MIT",
   "bugs": {
 	"url": "https://github.com/pressgang-wp/pressgang/issues"
