@@ -40,13 +40,14 @@ exports.template = function (grunt, init, done) {
 
 		// prompt
 		init.prompt('name', "pressgang-child"),
+		init.prompt('vendor', ""),
 		init.prompt('homepage', "https://github.com/pressgang-wp/pressgang-child"),
 		init.prompt('description', "WordPress child template for PressGang."),
 		init.prompt('version', "1.0.0"),
 		init.prompt('licenses', "MIT"),
 		init.prompt('author_name', "Benedict Wallis"),
 		init.prompt('author_email', "ben@benedict-wallis.com"),
-		init.prompt('author_uri', "https://benedict-wallis.com/")
+		init.prompt('author_uri', "https://benedict-wallis.com/"),
 
 	], function (err, props) {
 

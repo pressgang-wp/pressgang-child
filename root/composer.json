@@ -1,5 +1,5 @@
 {
-  "name": "{%= name %}",
+  "name": "{%= vendor/name %}",
   "description": "{%= description %}",
   "type": "wordpress-theme",
   "license": "MIT",
