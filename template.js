@@ -56,9 +56,6 @@ exports.template = function(grunt, init, done) {
         // process and copy
         init.copyAndProcess(files, props);
 
-        // generate package.json file for npm and grunt
-        // init.writePackageJSON('package.json', props);
-
         done();
     });
 
