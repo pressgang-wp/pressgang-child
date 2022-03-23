@@ -8,6 +8,15 @@
 
 'use strict';
 
+console.log("╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━━╮\n" +
+		"┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭━╮┃\n" +
+		"┃╰━╯┣━┳━━┳━━┳━━┫┃╱╰╋━━┳━╮╭━━╮\n" +
+		"┃╭━━┫╭┫┃━┫━━┫━━┫┃╭━┫╭╮┃╭╮┫╭╮┃\n" +
+		"┃┃╱╱┃┃┃┃━╋━━┣━━┃╰┻━┃╭╮┃┃┃┃╰╯┃\n" +
+		"╰╯╱╱╰╯╰━━┻━━┻━━┻━━━┻╯╰┻╯╰┻━╮┃\n" +
+		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃\n" +
+		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯");
+
 exports.description = 'Create a basic WordPress childtheme for PressGang.';
 
 // template-specific notes displayed before question prompts
@@ -35,15 +44,6 @@ exports.template = function(grunt, init, done) {
         init.prompt('author_uri', "https://benedict-wallis.com/")
 
     ], function(err, props) {
-
-    	console.log("╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━━╮\n" +
-				"┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭━╮┃\n" +
-				"┃╰━╯┣━┳━━┳━━┳━━┫┃╱╰╋━━┳━╮╭━━╮\n" +
-				"┃╭━━┫╭┫┃━┫━━┫━━┫┃╭━┫╭╮┃╭╮┫╭╮┃\n" +
-				"┃┃╱╱┃┃┃┃━╋━━┣━━┃╰┻━┃╭╮┃┃┃┃╰╯┃\n" +
-				"╰╯╱╱╰╯╰━━┻━━┻━━┻━━━┻╯╰┻╯╰┻━╮┃\n" +
-				"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃\n" +
-				"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯");
 
         // get the root files
         var files = init.filesToCopy(props);
