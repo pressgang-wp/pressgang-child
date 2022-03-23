@@ -8,7 +8,7 @@
 
 'use strict';
 
-exports.description = 'Create a basic WordPress childtheme for Pressgang.';
+exports.description = 'Create a basic WordPress childtheme for PressGang.';
 
 // template-specific notes displayed before question prompts
 exports.notes = '';
@@ -27,7 +27,7 @@ exports.template = function(grunt, init, done) {
         // prompt
         init.prompt('name', "pressgang-child"),
         init.prompt('homepage', "https://github.com/benedict-w/pressgang-child"),
-        init.prompt('description', "WordPress child template for pressgang."),
+        init.prompt('description', "WordPress child template for PressGang."),
         init.prompt('version', "1.0.0"),
         // init.prompt('licenses', "GPL-2.0"),
         init.prompt('author_name', "Benedict Wallis"),
