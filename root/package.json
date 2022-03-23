@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benedict-w/pressgang.git"
+    "url": "git+https://github.com/pressgang-wp/pressgang.git"
   },
   "keywords": [
     "Wordpress"
@@ -19,9 +19,9 @@
   "author": "{%= author_name}",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/benedict-w/pressgang/issues"
+    "url": "https://github.com/pressgang-wp/pressgang/issues"
   },
-  "homepage": "https://github.com/benedict-w/pressgang#readme",
+  "homepage": "https://github.com/pressgang-wp/pressgang#readme",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "latest",
     "bootstrap": "latest",
