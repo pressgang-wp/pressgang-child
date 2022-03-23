@@ -4,7 +4,7 @@
 - Create folder for child theme in: `wp-content/themes/[pressgang-child]`
 - Init local Grunt in child theme directory with: `sudo npm install grunt --save-dev`
 - Clone this repo `git clone https://github.com/benedict-w/pressgang-child.git ~/.grunt-init/pressgang-child`
-- grunt init the pressgang-child template: `grunt-init --force haio-child`
+- grunt init the pressgang-child template: `grunt-init --force pressgang-child`
 
 #### Directory Structure
 ```
