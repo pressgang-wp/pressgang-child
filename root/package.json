@@ -17,7 +17,7 @@
     "defaults"
   ],
   "author": "{%= author_name}",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pressgang-wp/pressgang/issues"
   },
@@ -35,7 +35,7 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-postcss": "latest",
+	"@lodder/grunt-postcss": "latest",
     "grunt-purgecss": "latest",
     "purgecss-with-wordpress": "latest",
     "grunt-svgmin": "latest",
