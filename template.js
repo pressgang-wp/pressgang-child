@@ -8,19 +8,19 @@
 
 'use strict';
 
-console.log("╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━━╮\n" +
+exports.description = 'Create a basic WordPress childtheme for PressGang.';
+
+// template-specific notes displayed before question prompts
+exports.notes =
+		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱\n" +
+		"╭━━━╮╱╱╱╱╱╱╱╱╱╱╭━━━╮\n" +
 		"┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃╭━╮┃\n" +
 		"┃╰━╯┣━┳━━┳━━┳━━┫┃╱╰╋━━┳━╮╭━━╮\n" +
 		"┃╭━━┫╭┫┃━┫━━┫━━┫┃╭━┫╭╮┃╭╮┫╭╮┃\n" +
 		"┃┃╱╱┃┃┃┃━╋━━┣━━┃╰┻━┃╭╮┃┃┃┃╰╯┃\n" +
 		"╰╯╱╱╰╯╰━━┻━━┻━━┻━━━┻╯╰┻╯╰┻━╮┃\n" +
 		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃\n" +
-		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯");
-
-exports.description = 'Create a basic WordPress childtheme for PressGang.';
-
-// template-specific notes displayed before question prompts
-exports.notes = '';
+		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯";
 
 // template-specific notes displayed after question prompts
 exports.after = '';
