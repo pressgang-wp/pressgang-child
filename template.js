@@ -29,34 +29,34 @@ exports.after = '';
 exports.warnOn = '*';
 
 // the actual init template.
-exports.template = function(grunt, init, done) {
+exports.template = function (grunt, init, done) {
 
-    init.process({}, [
+	init.process({}, [
 
-        // prompt
-        init.prompt('name', "pressgang-child"),
-        init.prompt('homepage', "https://github.com/pressgang-wp/pressgang-child"),
-        init.prompt('description', "WordPress child template for PressGang."),
-        init.prompt('version', "1.0.0"),
-        init.prompt('licenses', "MIT"),
-        init.prompt('author_name', "Benedict Wallis"),
-        init.prompt('author_email', "ben@benedict-wallis.com"),
-        init.prompt('author_uri', "https://benedict-wallis.com/")
+		// prompt
+		init.prompt('name', "pressgang-child"),
+		init.prompt('homepage', "https://github.com/pressgang-wp/pressgang-child"),
+		init.prompt('description', "WordPress child template for PressGang."),
+		init.prompt('version', "1.0.0"),
+		init.prompt('licenses', "MIT"),
+		init.prompt('author_name', "Benedict Wallis"),
+		init.prompt('author_email', "ben@benedict-wallis.com"),
+		init.prompt('author_uri', "https://benedict-wallis.com/")
 
-    ], function(err, props) {
+	], function (err, props) {
 
-        // get the root files
-        var files = init.filesToCopy(props);
+		// get the root files
+		var files = init.filesToCopy(props);
 
-        // add licenses
-        init.addLicenseFiles(files, props.licenses);
+		// add licenses
+		init.addLicenseFiles(files, props.licenses);
 
-        console.log( files );
+		console.log(files);
 
-        // process and copy
-        init.copyAndProcess(files, props);
+		// process and copy
+		init.copyAndProcess(files, props);
 
-        done();
-    });
+		done();
+	});
 
 };
