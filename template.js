@@ -23,7 +23,12 @@ exports.notes =
 		"╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯";
 
 // template-specific notes displayed after question prompts
-exports.after = '';
+exports.after = 'You should now install project dependencies with _npm ' +
+		'install_. After that, you may execute project tasks with _grunt_. For ' +
+		'more information about installing and configuring Grunt, please see ' +
+		'the Getting Started guide:' +
+		'\n\n' +
+		'http://gruntjs.com/getting-started';
 
 // any existing file or directory matching this wildcard will cause a warning
 exports.warnOn = '*';
