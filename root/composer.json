@@ -1,5 +1,5 @@
 {
-  "name": "{%= vendor/name %}",
+  "name": "{%= vendor %}/{%= name %}",
   "description": "{%= description %}",
   "type": "wordpress-theme",
   "license": "MIT",
@@ -10,10 +10,6 @@
     }
   ],
   "minimum-stability": "dev",
-  "repositories": [{
-    "type": "vcs",
-    "url": "http://github.com/pressgang-wp/pressgang"
-  }],
   "require": {
     "pressgang-wp/pressgang": "dev-master"
   },
