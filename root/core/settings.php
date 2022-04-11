@@ -209,16 +209,14 @@ return array (
      *
      */
     'scripts' => array(
-        /*
-        'bootstrap' => array(
-            'src' => get_template_directory_uri() . '/js/min/bootstrap.min.js',
-            'deps' => array('jquery'),
-            'version' => '3.2.0',
-            'in_footer' => true
-        ),
-        */
+	    'main' => array(
+		    'src'       => get_stylesheet_directory_uri() . ( WP_DEBUG ? '/js/dist/{%= name %}.js' : '/js/min/{%= name %}.min.js' ),
+		    'deps'      => array(),
+		    'version'   => '0.1',
+		    'in_footer' => true
+	    ),
     ),
-    
+
     /*
      * Styles
      *
