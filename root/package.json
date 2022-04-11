@@ -13,9 +13,6 @@
   "keywords": [
 	"WordPress"
   ],
-  "browserslist": [
-	"defaults"
-  ],
   "author": "{%= author_name %}",
   "license": "MIT",
   "bugs": {
