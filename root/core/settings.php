@@ -29,14 +29,15 @@ return array (
      */
     'inc' => array(
         'admin-logo',
+        'logo-svg',
         'customizer',
         'emojicons',
         'filters',
-        'gallery',
         'google-analytics',
         'opengraph',
         'permalinks',
         'title',
+	    'editor-styles',
     ),
 
     /*
@@ -145,6 +146,9 @@ return array (
      *
      * Loader will automatically add new Block categories which appear in the admin UI for adding Gutenberg blocks.
      *
+     * @see Gutenberg docs for supports args:
+     * https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/
+     *
      * @var array
      *
      * [
@@ -156,6 +160,7 @@ return array (
      *      'category' => array('slug' => '', 'title' => __("", THEMENAME)),
      *      'icon' => '', // see dashicons https://developer.wordpress.org/resource/dashicons/#align-right
      *      'keywords' => array(''),
+     *      'supports' => array(),
      *   ),
      */
     'acf-blocks' => array(),
