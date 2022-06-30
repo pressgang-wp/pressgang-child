@@ -340,10 +340,16 @@ return array (
      *
      * @var array
      */
-    'support' => array(
-        'html5',
-        'post-thumbnails',
-    ),
+		'support'           => array(
+				'html5' => array(
+						'comment-list',
+						'comment-form',
+						'search-form',
+						'gallery',
+						'caption',
+				),
+				'post-thumbnails',
+		),
 
     /*
      * Plugins
