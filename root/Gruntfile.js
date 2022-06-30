@@ -74,7 +74,7 @@ module.exports = function (grunt) {
 		},
 
 		/*
-		 * https://www.npmjs.com/package/grunt-concat-css
+		 * https://www.npmjs.com/package/grunt-concat-js
 		 */
 		concat: {
 			options: {
