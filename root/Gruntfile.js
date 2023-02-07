@@ -36,6 +36,7 @@ module.exports = function (grunt) {
 
 		/*
 		 * https://purgecss.com/plugins/grunt.html
+		 * https://purgecss.com/guides/wordpress.html
 		 */
 		purgecss: {
 			my_target: {
