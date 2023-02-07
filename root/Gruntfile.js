@@ -41,11 +41,8 @@ module.exports = function (grunt) {
 		purgecss: {
 			my_target: {
 				options: {
-					whitelist: [
-						...require("purgecss-with-wordpress").whitelist,
-					],
-					whitelistPatterns: [
-						...require("purgecss-with-wordpress").whitelistPatterns,
+					safelist: [
+						...require("purgecss-with-wordpress").safelist,
 					],
 					content: [
 						'../pressgang/views/**/*.twig',
