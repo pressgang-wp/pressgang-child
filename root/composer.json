@@ -1,26 +1,32 @@
 {
-  "name": "{%= name}",
-  "description": "{%= description}",
-  "type": "wordpress-theme",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "{%= author_name}",
-      "email": "{%= author_email}"
-    }
-  ],
-  "minimum-stability": "dev",
-  "repositories": [{
-    "type": "vcs",
-    "url": "http://github.com/benedict-w/pressgang"
-  }],
-  "require": {
-    "benedict-w/pressgang": "dev-master"
-  },
-  "extra": {
-    "installer-paths": {
-      "../plugins/{$name}/": ["type:wordpress-plugin"],
-      "../themes/{$name}/": ["type:wordpress-theme"]
-    }
-  }
+	"name": "{%= name}",
+	"description": "{%= description}",
+	"type": "wordpress-theme",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "{%= author_name}",
+			"email": "{%= author_email}"
+		}
+	],
+	"minimum-stability": "dev",
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "http://github.com/benedict-w/pressgang"
+		}
+	],
+	"require": {
+		"benedict-w/pressgang": "dev-master"
+	},
+	"extra": {
+		"installer-paths": {
+			"../plugins/{$name}/": [
+				"type:wordpress-plugin"
+			],
+			"../themes/{$name}/": [
+				"type:wordpress-theme"
+			]
+		}
+	}
 }
