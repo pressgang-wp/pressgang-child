@@ -1,4 +1,6 @@
-# A Grunt Template for setting up a Pressgang ready Wordpress Child Theme
+For more information on Grunt Scaffolding see - https://gruntjs.com/project-scaffolding
+
+# A Grunt Template for setting up a PressGang ready Wordpress Child Theme
 - Install Grunt CLI http://gruntjs.com/getting-started.
 - Install Grunt Scaffolding - https://gruntjs.com/project-scaffolding
 - Create folder for child theme in: `wp-content/themes/[pressgang-child]`

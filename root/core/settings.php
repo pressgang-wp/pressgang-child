@@ -6,9 +6,9 @@
  * This is the main setup file for any PressGang child theme. File always resides in child-theme core folder.
  *
  * Sections are loaded via PressGang's core/loader.php
- * https://github.com/benedict-w/pressgang/blob/master/core/loader.php
+ * https://github.com/pressgang-wp/pressgang/blob/master/core/loader.php
  *
- * @package PressGang https://github.com/benedict-w/pressgang
+ * @package PressGang https://github.com/pressgang-wp/pressgang
  *
  */
 return array (
@@ -29,14 +29,15 @@ return array (
      */
     'inc' => array(
         'admin-logo',
+        'logo-svg',
         'customizer',
         'emojicons',
         'filters',
-        'gallery',
         'google-analytics',
         'opengraph',
         'permalinks',
         'title',
+	    'editor-styles',
     ),
 
     /*
@@ -50,7 +51,7 @@ return array (
      * This folder should be specifically reserved for WordPress widgets included in the theme.
      *
      * Widgets can be extended from PressGang base class
-     * https://github.com/benedict-w/pressgang/blob/master/classes/widget.php
+     * https://github.com/pressgang-wp/pressgang/blob/master/classes/widget.php
      *
      * Note:- fails silently if file not found!
      *
@@ -70,7 +71,7 @@ return array (
      * This folder should be specifically reserved for WordPress shortcodes included in the theme.
      *
      * Shortcodes can be extended from PressGang base class
-     * https://github.com/benedict-w/pressgang/blob/master/classes/shortcode.php
+     * https://github.com/pressgang-wp/pressgang/blob/master/classes/shortcode.php
      *
      * Note:- fails silently if file not found!
      *
@@ -135,15 +136,18 @@ return array (
      * of the theme. Checks first for files in child theme then parent (PressGang).
      *
      * See the AcfBlocks class (which is a proxy for acf_register_block) for instantiation details:
-     * https://github.com/benedict-w/pressgang/blob/master/core/acf-blocks.php
+     * https://github.com/pressgang-wp/pressgang/blob/master/core/acf-blocks.php
      * https://www.advancedcustomfields.com/resources/acf_register_block_type/
      *
      * Blocks can be extended from the PressGang base class, in which case set the correct render_callback.
-     * https://github.com/benedict-w/pressgang/blob/master/classes/block.php
+     * https://github.com/pressgang-wp/pressgang/blob/master/classes/block.php
      *
      * The PressGang/Block class automatically sends ACF fields to the Timber context.
      *
      * Loader will automatically add new Block categories which appear in the admin UI for adding Gutenberg blocks.
+     *
+     * @see Gutenberg docs for supports args:
+     * https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/
      *
      * @var array
      *
@@ -156,6 +160,7 @@ return array (
      *      'category' => array('slug' => '', 'title' => __("", THEMENAME)),
      *      'icon' => '', // see dashicons https://developer.wordpress.org/resource/dashicons/#align-right
      *      'keywords' => array(''),
+     *      'supports' => array(),
      *   ),
      */
     'acf-blocks' => array(),
@@ -181,7 +186,7 @@ return array (
     /*
      * Scripts
      *
-     * See - https://github.com/benedict-w/pressgang/blob/master/core/scripts.php
+     * See - https://github.com/pressgang-wp/pressgang/blob/master/core/scripts.php
      *
      * Array of scripts on $handle => $args array where $args match wp_register_script arguments see:
      * https://developer.wordpress.org/reference/functions/wp_register_script/
@@ -209,20 +214,18 @@ return array (
      *
      */
     'scripts' => array(
-        /*
-        'bootstrap' => array(
-            'src' => get_template_directory_uri() . '/js/min/bootstrap.min.js',
-            'deps' => array('jquery'),
-            'version' => '3.2.0',
-            'in_footer' => true
-        ),
-        */
+	    'main' => array(
+		    'src'       => get_stylesheet_directory_uri() . ( WP_DEBUG ? '/js/dist/{%= name %}.js' : '/js/min/{%= name %}.min.js' ),
+		    'deps'      => array(),
+		    'version'   => '0.1',
+		    'in_footer' => true
+	    ),
     ),
-    
+
     /*
      * Styles
      *
-     * See - https://github.com/benedict-w/pressgang/blob/master/core/styles.php
+     * See - https://github.com/pressgang-wp/pressgang/blob/master/core/styles.php
      *
      * Array of stylesheets on $handle => $args array where $args match wp_register_style arguments see:
      * https://codex.wordpress.org/Function_Reference/wp_register_style
@@ -337,10 +340,16 @@ return array (
      *
      * @var array
      */
-    'support' => array(
-        'html5',
-        'post-thumbnails',
-    ),
+		'support'           => array(
+				'html5' => array(
+						'comment-list',
+						'comment-form',
+						'search-form',
+						'gallery',
+						'caption',
+				),
+				'post-thumbnails',
+		),
 
     /*
      * Plugins

@@ -1,45 +1,42 @@
 {
-  "name": "{%= name}",
-  "version": "{%= version}",
-  "description": "{%= description}",
+  "name": "{%= name %}",
+  "version": "{%= version %}",
+  "description": "{%= description %}",
   "main": "index.php",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pressgang-wp/pressgang.git"
+	"type": "git",
+	"url": "git+https://github.com/pressgang-wp/pressgang.git"
   },
   "keywords": [
-    "Wordpress"
+	"WordPress"
   ],
-  "browserslist": [
-    "defaults"
-  ],
-  "author": "{%= author_name}",
+  "author": "{%= author_name %}",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pressgang-wp/pressgang/issues"
+	"url": "https://github.com/pressgang-wp/pressgang/issues"
   },
   "homepage": "https://github.com/pressgang-wp/pressgang#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "latest",
-    "bootstrap": "latest",
-    "lazysizes": "latest",
-    "autoprefixer": "latest",
-    "grunt": "latest",
-    "grunt-contrib-clean": "latest",
-    "grunt-contrib-compress": "latest",
-    "grunt-contrib-concat": "latest",
-    "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
+	"@fortawesome/fontawesome-free": "latest",
+	"bootstrap": "latest",
+	"lazysizes": "latest",
+	"autoprefixer": "latest",
+	"grunt": "latest",
+	"grunt-contrib-clean": "latest",
+	"grunt-contrib-compress": "latest",
+	"grunt-contrib-concat": "latest",
+	"grunt-contrib-cssmin": "latest",
+	"grunt-contrib-sass": "latest",
+	"grunt-contrib-uglify": "latest",
+	"grunt-contrib-watch": "latest",
 	"@lodder/grunt-postcss": "latest",
-    "grunt-purgecss": "latest",
-    "purgecss-with-wordpress": "latest",
-    "grunt-svgmin": "latest",
-    "grunt-webfont": "latest",
-    "browserslist": "latest"
+	"grunt-purgecss": "latest",
+	"purgecss-with-wordpress": "latest",
+	"grunt-svgmin": "latest",
+	"grunt-webfont": "latest",
+	"browserslist": "latest"
   }
 }
