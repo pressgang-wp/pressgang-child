@@ -1,4 +1,4 @@
-/*
+/**
  * grunt-init-pressgang-child
  * https://github.com/pressgang-wp/pressgang
  *
