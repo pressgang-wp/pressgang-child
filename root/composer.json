@@ -1,6 +1,6 @@
 {
-	"name": "{%= name}",
-	"description": "{%= description}",
+	"name": "{%= vendor %}/{%= name %}",
+	"description": "{%= description %}",
 	"type": "wordpress-theme",
 	"license": "MIT",
 	"authors": [
@@ -9,24 +9,23 @@
 			"email": "{%= author_email}"
 		}
 	],
-	"minimum-stability": "dev",
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "http://github.com/benedict-w/pressgang"
-		}
-	],
+	"minimum-stability": "stable",
 	"require": {
-		"benedict-w/pressgang": "dev-master"
+		"pressgang-wp/pressgang": "dev-master"
 	},
 	"extra": {
 		"installer-paths": {
-			"../plugins/{$name}/": [
+			"../../plugins/{$name}/": [
 				"type:wordpress-plugin"
 			],
-			"../themes/{$name}/": [
+			"../../themes/{$name}/": [
 				"type:wordpress-theme"
 			]
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
 		}
 	}
 }
