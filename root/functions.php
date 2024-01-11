@@ -1,3 +1,3 @@
 <?php
 
-define('THEMENAME', '{%= name %}');
+define( 'THEMENAME', '{%= name %}' );
