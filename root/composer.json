@@ -1,31 +1,27 @@
 {
-	"name": "{%= vendor %}/{%= name %}",
-	"description": "{%= description %}",
-	"type": "wordpress-theme",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "{%= author_name}",
-			"email": "{%= author_email}"
-		}
-	],
-	"minimum-stability": "stable",
-	"require": {
-		"pressgang-wp/pressgang": "dev-master"
-	},
-	"extra": {
-		"installer-paths": {
-			"../../plugins/{$name}/": [
-				"type:wordpress-plugin"
-			],
-			"../../themes/{$name}/": [
-				"type:wordpress-theme"
-			]
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"composer/installers": true
-		}
+  "name": "{%= vendor %}/{%= name %}",
+  "description": "{%= description %}",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "{%= author_name %}",
+      "email": "{%= author_email %}"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "pressgang-wp/pressgang": "dev-master"
+  },
+  "extra": {
+    "installer-paths": {
+	  "../../plugins/{$name}/": ["type:wordpress-plugin"],
+	  "../../themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "config": {
+	"allow-plugins": {
+	  "composer/installers": true
 	}
+  }
 }
