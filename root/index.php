@@ -1,4 +1,4 @@
 <?php
 
-$controller = new \Pressgang\PostsController();
+$controller = new \PressGang\Controllers\PostsController();
 $controller->render();
