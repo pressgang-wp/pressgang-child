@@ -1,3 +1,8 @@
 <?php
+/**
+ * Theme bootstrap file.
+ *
+ * @package {%= theme_slug %}
+ */
 
-define( 'THEMENAME', '{%= name %}' );
+define( 'THEMENAME', '{%= theme_slug %}' );

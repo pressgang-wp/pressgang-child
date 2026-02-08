@@ -1,228 +1,175 @@
+/**
+ * Grunt configuration for the generated PressGang child theme.
+ *
+ * Task map:
+ * - clean: remove compiled assets or release zips
+ * - styles: compile SCSS and run PostCSS (autoprefixer)
+ * - styles:build: styles + cssnano minification
+ * - scripts: concatenate and minify JS when source files exist
+ * - lint: run stylelint on SCSS
+ * - dev: build once and watch source files
+ * - build: production-oriented compile
+ * - package: build + zip release artifact
+ */
 module.exports = function (grunt) {
+	'use strict';
+
+	const autoprefixer = require('autoprefixer');
+	const cssnano = require('cssnano');
+	const sass = require('sass');
+	const stylelint = require('stylelint');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-sass
-		 */
+		clean: {
+			assets: ['css/*.css', 'js/dist/*.js', 'js/min/*.js'],
+			release: ['release']
+		},
+
 		sass: {
-			dist: {
+			options: {
+				implementation: sass,
+				sourceMap: true
+			},
+			styles: {
 				files: {
-					"css/styles.css": "scss/styles.scss",
-					"css/editor-styles.css": "scss/editor-styles.scss",
+					'css/styles.css': 'scss/styles.scss',
+					'css/editor-styles.css': 'scss/editor-styles.scss'
 				}
 			}
 		},
 
-		/*
-		 * https://github.com/C-Lodder/grunt-postcss
-		 *
-		 * To compile with autoprefixer -
-		 * npm i --save-dev postcss @lodder/grunt-postcss autoprefixer
-		 *
-		 */
 		postcss: {
 			options: {
-				map: true,
-				processors: [
-					require('autoprefixer')
-				]
-			},
-			dist: {
-				src: 'css/*.css'
-			}
-		},
-
-		/*
-		 * https://purgecss.com/plugins/grunt.html
-		 * https://purgecss.com/guides/wordpress.html
-		 */
-		purgecss: {
-			my_target: {
-				options: {
-					safelist: [
-						...require("purgecss-with-wordpress").safelist,
-					],
-					content: [
-						'../pressgang/views/**/*.twig',
-						'./views/**/*.twig',
-						'./js/dist/*.js'
-					]
+				map: {
+					inline: false
 				},
-				files: {
-					'css/styles.css': ['css/styles.css']
-				}
+				processors: [autoprefixer()]
+			},
+			styles: {
+				src: ['css/*.css']
+			},
+			build: {
+				options: {
+					map: false,
+					processors: [autoprefixer(), cssnano()]
+				},
+				src: ['css/*.css']
 			}
 		},
 
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-cssmin
-		 */
-		cssmin: {
-			target: {
-				files: [{
-					expand: true,
-					cwd: 'css',
-					src: ['*.css'],
-					dest: 'css',
-					ext: '.css'
-				}]
-			}
-		},
-
-		/*
-		 * https://www.npmjs.com/package/grunt-concat-js
-		 */
 		concat: {
 			options: {
 				separator: ';'
 			},
 			dist: {
 				src: ['js/src/**/*.js'],
-				dest: 'js/dist/<%= pkg.name %>.js'
+				dest: 'js/dist/<%= pkg.themeSlug %>.js'
 			}
 		},
 
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-uglify
-		 */
 		uglify: {
 			options: {
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+				banner: '/*! <%= pkg.themeName %> <%= grunt.template.today("yyyy-mm-dd") %> */\\n'
 			},
 			dist: {
 				files: {
-					'js/min/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+					'js/min/<%= pkg.themeSlug %>.min.js': ['<%= concat.dist.dest %>']
 				}
 			}
 		},
 
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-clean
-		 */
-		clean: {
-			main: ['release/<%= pkg.version %>']
+		watch: {
+			styles: {
+				files: ['scss/**/*.scss'],
+				tasks: ['styles'],
+				options: {
+					interrupt: true
+				}
+			},
+			scripts: {
+				files: ['js/src/**/*.js'],
+				tasks: ['scripts'],
+				options: {
+					interrupt: true
+				}
+			}
 		},
 
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-compress
-		 */
 		compress: {
 			main: {
 				options: {
 					mode: 'zip',
-					archive: './release/<%= pkg.name %>.<%= pkg.version %>.zip'
+					archive: './release/<%= pkg.themeSlug %>.<%= pkg.version %>.zip'
 				},
 				expand: true,
 				src: [
 					'**',
-					'!.idea',
 					'!node_modules/**',
 					'!release/**',
 					'!.git/**',
-					'!.sass-cache/**',
-					'!css/src/**',
-					// '!js/src/**',
-					'!img/src/**',
+					'!.idea/**',
+					'!js/src/**',
 					'!Gruntfile.js',
 					'!package.json',
+					'!package-lock.json',
 					'!composer.json',
-					'!.gitignore',
-					'!.gitmodules'
+					'!.gitignore'
 				],
-				dest: '<%= pkg.name %>/'
-			}
-		},
-
-		/*
-		 * https://github.com/sindresorhus/grunt-svgmin
-		 */
-		svgmin: {
-			options: {
-				plugins: [
-					{ removeViewBox: false }
-				]
-			},
-			dist: {
-				expand: true,
-				cwd: 'icons/src',
-				src: '*.svg',
-				dest: 'icons/min',
-				ext: '.svg',
-				extDot: 'first'
-			}
-		},
-
-		/*
-		 * https://github.com/sapegin/grunt-webfont
-		 */
-		webfont: {
-			icons: {
-				src: 'icons/src/**/*.svg',
-				dest: 'fonts',
-				destCss: 'scss',
-				options: {
-					fontFamilyName: '<%= pkg.name %> Icons',
-					engine: 'node',
-					syntax: 'bootstrap',
-					fontFilename: '<%= pkg.name.toLowerCase() %>-icons',
-					stylesheets: ['scss'],
-					htmlDemo: false,
-					optimize: false,
-					normalize: true,
-					ligatures: false,
-					templateOptions: {
-						baseClass: '<%= pkg.name.toLowerCase() %>-icon',
-						classPrefix: '<%= pkg.name.toLowerCase() %>-icon-'
-					}
-				}
-			}
-		},
-
-		/*
-		 * https://github.com/gruntjs/grunt-contrib-watch
-		 */
-		watch: {
-			styles: {
-				files: ['scss/**/*.scss', '../pressgang/scss/**/*.scss'],
-				tasks: ['sass', 'postcss', 'cssmin'],
-				options: {
-					nospawn: true
-				}
-			},
-			scripts: {
-				files: ['Gruntfile.js', 'js/src/**/*.js'],
-				tasks: ['concat', 'uglify'],
-				options: {
-					spawn: false
-				}
+				dest: '<%= pkg.themeSlug %>/'
 			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('@lodder/grunt-postcss');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-purgecss');
-
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-compress');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compress');
 
-	grunt.loadNpmTasks('grunt-svgmin');
-	grunt.loadNpmTasks('grunt-webfont');
-	grunt.loadNpmTasks('grunt-svg-sprite');
+	function hasScriptSources() {
+		return grunt.file.expand(['js/src/**/*.js', '!js/src/**/.gitkeep']).length > 0;
+	}
 
-	grunt.registerTask('default', ['sass', 'postcss', 'purgecss', 'cssmin', 'concat', 'uglify', 'watch']);
-	grunt.registerTask('scripts', ['concat', 'uglify']);
-	grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
+	grunt.registerTask('clean-assets', ['clean:assets']);
+	grunt.registerTask('styles', ['sass:styles', 'postcss:styles']);
+	grunt.registerTask('styles:build', ['sass:styles', 'postcss:build']);
+	grunt.registerTask('scripts', function () {
+		if (!hasScriptSources()) {
+			grunt.log.ok('No JS source files found in js/src. Skipping scripts task.');
+			return;
+		}
 
-	grunt.registerTask('svg', ['svgmin']);
-	grunt.registerTask('iconfont', ['webfont']);
+		grunt.task.run(['concat', 'uglify']);
+	});
+	grunt.registerTask('lint', function () {
+		const done = this.async();
 
-	grunt.registerTask('build', ['clean', 'compress']);
+		stylelint
+			.lint({
+				files: ['scss/**/*.scss'],
+				configFile: '.stylelintrc.json',
+				formatter: 'string'
+			})
+			.then(function (result) {
+				const report = result.report || result.output;
+				if (report) {
+					grunt.log.writeln(report);
+				}
+
+				done(!result.errored);
+			})
+			.catch(function (error) {
+				grunt.log.error(error);
+				done(false);
+			});
+	});
+
+	grunt.registerTask('build', ['clean:assets', 'styles:build', 'scripts', 'lint']);
+	grunt.registerTask('dev', ['clean:assets', 'styles', 'scripts', 'watch']);
+	grunt.registerTask('package', ['build', 'clean:release', 'compress']);
+	grunt.registerTask('default', ['build']);
 };

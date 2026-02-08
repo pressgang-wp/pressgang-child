@@ -1,4 +1,11 @@
 <?php
+/**
+ * Main template file.
+ *
+ * @package {%= theme_slug %}
+ */
 
-$controller = new \PressGang\Controllers\PostsController();
+use PressGang\Controllers\PostsController;
+
+$controller = new PostsController();
 $controller->render();

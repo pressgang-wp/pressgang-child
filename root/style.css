@@ -1,5 +1,5 @@
 /*
- * Theme Name:   {%= name %}
+ * Theme Name:   {%= theme_name %}
  * Theme URI:    {%= homepage %}
  * Template:     pressgang
  * Description:  {%= description %}
@@ -7,9 +7,9 @@
  * Author URI:   {%= author_uri %}
  * Author Email: {%= author_email %}
  * Version:      {%= version %}
- * Licenses:     GPLv2+
- * License URI:  http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:  {%= name %}
+ * License:      GPLv2+
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  {%= textdomain %}
  * Domain Path:  /lang
  */
 

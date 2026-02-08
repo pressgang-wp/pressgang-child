@@ -1,5 +1,5 @@
 {
-	"name": "{%= vendor %}/{%= name %}",
+	"name": "{%= composer_package_name %}",
 	"description": "{%= description %}",
 	"type": "wordpress-theme",
 	"license": "MIT",
@@ -9,9 +9,8 @@
 			"email": "{%= author_email %}"
 		}
 	],
-	"minimum-stability": "dev",
 	"require": {
-		"pressgang-wp/pressgang": "dev-master"
+		"pressgang-wp/pressgang": "^2.0"
 	},
 	"extra": {
 		"installer-paths": {
@@ -24,13 +23,15 @@
 		}
 	},
 	"config": {
+		"optimize-autoloader": true,
+		"sort-packages": true,
 		"allow-plugins": {
 			"composer/installers": true
 		}
 	},
 	"autoload": {
 		"psr-4": {
-			"{%= namespace %}\\": "src/"
+			"{%= namespace_json %}": "src/"
 		}
 	}
 }

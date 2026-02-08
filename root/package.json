@@ -1,42 +1,42 @@
 {
-  "name": "{%= name %}",
+  "name": "{%= npm_package_name %}",
   "version": "{%= version %}",
   "description": "{%= description %}",
-  "main": "index.php",
+  "private": true,
+  "themeName": "{%= theme_name %}",
+  "themeSlug": "{%= theme_slug %}",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "grunt clean:assets",
+    "styles": "grunt styles",
+    "scripts": "grunt scripts",
+    "lint": "grunt lint",
+    "watch": "grunt watch",
+    "dev": "grunt dev",
+    "build": "grunt build",
+    "package": "grunt package"
   },
-  "repository": {
-	"type": "git",
-	"url": "git+https://github.com/pressgang-wp/pressgang.git"
-  },
-  "keywords": [
-	"WordPress"
-  ],
   "author": "{%= author_name %}",
-  "license": "MIT",
-  "bugs": {
-	"url": "https://github.com/pressgang-wp/pressgang/issues"
+  "license": "{%= license %}",
+  "engines": {
+    "node": ">=18.18.0"
   },
-  "homepage": "https://github.com/pressgang-wp/pressgang#readme",
+  "browserslist": [
+    "last 2 versions",
+    "not dead"
+  ],
   "devDependencies": {
-	"@fortawesome/fontawesome-free": "latest",
-	"bootstrap": "latest",
-	"lazysizes": "latest",
-	"autoprefixer": "latest",
-	"grunt": "latest",
-	"grunt-contrib-clean": "latest",
-	"grunt-contrib-compress": "latest",
-	"grunt-contrib-concat": "latest",
-	"grunt-contrib-cssmin": "latest",
-	"grunt-contrib-sass": "latest",
-	"grunt-contrib-uglify": "latest",
-	"grunt-contrib-watch": "latest",
-	"@lodder/grunt-postcss": "latest",
-	"grunt-purgecss": "latest",
-	"purgecss-with-wordpress": "latest",
-	"grunt-svgmin": "latest",
-	"grunt-webfont": "latest",
-	"browserslist": "latest"
+    "@lodder/grunt-postcss": "^3.1.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-compress": "^2.0.0",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^4.0.0",
+    "sass": "^1.92.0",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard-scss": "^15.0.1"
   }
 }
