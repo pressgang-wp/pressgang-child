@@ -9,8 +9,12 @@
 			"email": "{%= author_email %}"
 		}
 	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"require": {
-		"pressgang-wp/pressgang": "^2.0"
+		"pressgang-wp/pressgang": "dev-master",
+		"pressgang-wp/pressgang-snippets": "dev-main",
+		"pressgang-wp/quartermaster": "dev-main"
 	},
 	"extra": {
 		"installer-paths": {
