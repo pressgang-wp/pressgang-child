@@ -37,5 +37,10 @@
 		"psr-4": {
 			"{%= namespace_json %}": "src/"
 		}
+	},
+	"scripts": {
+		"post-update-cmd": [
+			"command -v wp >/dev/null 2>&1 && wp bosun update --theme=. || true"
+		]
 	}
 }
